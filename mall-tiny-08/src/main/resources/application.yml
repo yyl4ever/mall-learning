@@ -1,0 +1,85 @@
+server:
+  port: 8091
+  
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.220.138:3306/mall?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+  redis:
+    # Redis 服务器地址
+    host: 192.168.220.138
+    # Redis 数据库索引（默认为0）
+    database: 0
+    # Redis 服务器连接端口
+    port: 6379
+    # Redis 服务器连接密码（默认为空）
+    password: root
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中最大空闲连接
+        max-idle: 8
+        # 连接池中最小空闲连接
+        min-idle: 0
+    # 连接超时时间（毫秒）    
+    timeout: 3000ms  
+  # elasticsearch 配置在 spring 节点下
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      # es 连接地址及端口号
+      cluster-nodes: 192.168.220.138:9300
+      # es 集群的名称
+      cluster-name: elasticsearch 
+    mongodb:
+      # mongodb 的连接地址
+      host:  192.168.220.138
+      # mongodb 的连接端口号
+      port: 27017
+      # mongodb 的连接的数据库
+      database: mall-port
+  elasticsearch:
+    rest:
+      uris: ["192.168.220.138:9200"]
+  rabbitmq:
+   # rabbitmq的连接地址
+    host: 192.168.220.138
+    # rabbitmq的连接端口号
+    port: 5672
+    # rabbitmq的虚拟host
+    virtual-host: /mall
+    #rabbitmq的用户名
+    username: mall
+    # rabbitmq的密码
+    password: mall
+    #如果对异步消息需要回调必须设置为true
+    publisher-confirms: true
+         
+
+mybatis:
+  mapper-locations:
+  # - 表示数组
+  - classpath:mapper/*.xml
+  - classpath*:com/**/mapper/*.xml
+  
+# 自定义 redis key
+redis:
+  key:
+   prefix:
+    authCode: "portal:authCode:"
+   expire:
+    # 验证码超期时间,单位秒
+    authCode: 120
+
+# 自定义 jwt key
+jwt:
+  tokenHeader: Authorization # Jwt存储的请求头
+  secret: mySecret # Jwt加解密使用的密钥
+  expiration: 604800 # Jwt的超期时间（60*60*24 -- 1天）
+  tokenHead: Bearer # Jwt负载中拿到开头
+      
