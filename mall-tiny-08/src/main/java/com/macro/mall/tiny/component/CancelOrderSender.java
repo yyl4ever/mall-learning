@@ -22,11 +22,11 @@ public class CancelOrderSender {
     private AmqpTemplate amqpTemplate;
     
     public void sendMessage(Long orderId, final long delayTimes) {
-        //给延迟队列发送消息，间隔 delayTimes 会被转发到 QUEUE_ORDER_CANCEL,
-        // @RabbitListener(queues = "mall.order.cancel") 监听到消息，再进行取消动作
+        // 给队列发送延迟消息，间隔 delayTimes 会被转发到 QUEUE_ORDER_CANCEL 队列,
         // TODO 隔了 delayTimes 将 orderId 的订单取消？
         amqpTemplate.convertAndSend(QueueEnum.QUEUE_TTL_ORDER_CANCEL.getExchange(),
                 QueueEnum.QUEUE_TTL_ORDER_CANCEL.getRouteKey(),
+                // 指定交换机和路由键，就能到达指定的队列。
                 orderId,
                 new MessagePostProcessor() {
                     @Override

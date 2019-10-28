@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2019/9/11 16:17
  * 用于配置交换机、队列及队列与交换机的绑定关系。
  */
+// 让 SpringBoot 能够扫描到该配置
 @Configuration
 public class RabbitMqConfig {
     
@@ -27,7 +28,7 @@ public class RabbitMqConfig {
     }
 
     /**
-     * 订单延迟队列队列所绑定的交换机
+     * 订单延迟队列所绑定的交换机
      */
     @Bean
     DirectExchange orderTtlDirect() {
@@ -62,12 +63,13 @@ public class RabbitMqConfig {
                 .withArgument("x-dead-letter-exchange", QueueEnum.QUEUE_ORDER_CANCEL.getExchange())
                 // 到期后转发的路由键
                 .withArgument("x-dead-letter-routing-key", QueueEnum.QUEUE_ORDER_CANCEL.getRouteKey())
+                // 指定交换机和路由键，就能到达指定的队列。
                 .build();
     }
 
     /**
-     * 将订单队列绑定到交换机
-     * @param orderDirect
+     * 将订单队列绑定到交换机，并指定路由键
+     * @param orderDirect 注意名称的一致，确保 SpringBoot 能够注入成功
      * @param orderQueue
      * @return
      */
