@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.tiny.mbg.mapper.UploadHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.macro.mall.tiny.mbg.model.UploadHistory">
+    <!--@mbg.generated-->
+    <!--@Table tb_pservice_upload_history-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="upload_file_name" jdbcType="VARCHAR" property="uploadFileName" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="province_code" jdbcType="VARCHAR" property="provinceCode" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="county_name" jdbcType="VARCHAR" property="countyName" />
+    <result column="county_code" jdbcType="VARCHAR" property="countyCode" />
+    <result column="end_province_code" jdbcType="VARCHAR" property="endProvinceCode" />
+    <result column="end_province_name" jdbcType="VARCHAR" property="endProvinceName" />
+    <result column="end_city_code" jdbcType="VARCHAR" property="endCityCode" />
+    <result column="end_city_name" jdbcType="VARCHAR" property="endCityName" />
+    <result column="end_county_code" jdbcType="VARCHAR" property="endCountyCode" />
+    <result column="end_county_name" jdbcType="VARCHAR" property="endCountyName" />
+    <result column="end_area" jdbcType="VARCHAR" property="endArea" />
+    <result column="station" jdbcType="VARCHAR" property="station" />
+    <result column="uploader" jdbcType="VARCHAR" property="uploader" />
+    <result column="uploader_phone" jdbcType="VARCHAR" property="uploaderPhone" />
+    <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, upload_file_name, area, province_name, province_code, city_name, city_code, county_name, 
+    county_code, end_province_code, end_province_name, end_city_code, end_city_name, 
+    end_county_code, end_county_name, end_area, station, uploader, uploader_phone, upload_time, 
+    user_id, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_pservice_upload_history
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_pservice_upload_history
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.macro.mall.tiny.mbg.model.UploadHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_pservice_upload_history (upload_file_name, area, province_name, 
+      province_code, city_name, city_code, 
+      county_name, county_code, end_province_code, 
+      end_province_name, end_city_code, end_city_name, 
+      end_county_code, end_county_name, end_area, 
+      station, uploader, uploader_phone, 
+      upload_time, user_id, create_time, 
+      update_time)
+    values (#{uploadFileName,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{provinceName,jdbcType=VARCHAR}, 
+      #{provinceCode,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, #{cityCode,jdbcType=VARCHAR}, 
+      #{countyName,jdbcType=VARCHAR}, #{countyCode,jdbcType=VARCHAR}, #{endProvinceCode,jdbcType=VARCHAR}, 
+      #{endProvinceName,jdbcType=VARCHAR}, #{endCityCode,jdbcType=VARCHAR}, #{endCityName,jdbcType=VARCHAR}, 
+      #{endCountyCode,jdbcType=VARCHAR}, #{endCountyName,jdbcType=VARCHAR}, #{endArea,jdbcType=VARCHAR}, 
+      #{station,jdbcType=VARCHAR}, #{uploader,jdbcType=VARCHAR}, #{uploaderPhone,jdbcType=VARCHAR}, 
+      #{uploadTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.macro.mall.tiny.mbg.model.UploadHistory" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_pservice_upload_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="uploadFileName != null and uploadFileName != ''">
+        upload_file_name,
+      </if>
+      <if test="area != null and area != ''">
+        area,
+      </if>
+      <if test="provinceName != null and provinceName != ''">
+        province_name,
+      </if>
+      <if test="provinceCode != null and provinceCode != ''">
+        province_code,
+      </if>
+      <if test="cityName != null and cityName != ''">
+        city_name,
+      </if>
+      <if test="cityCode != null and cityCode != ''">
+        city_code,
+      </if>
+      <if test="countyName != null and countyName != ''">
+        county_name,
+      </if>
+      <if test="countyCode != null and countyCode != ''">
+        county_code,
+      </if>
+      <if test="endProvinceCode != null and endProvinceCode != ''">
+        end_province_code,
+      </if>
+      <if test="endProvinceName != null and endProvinceName != ''">
+        end_province_name,
+      </if>
+      <if test="endCityCode != null and endCityCode != ''">
+        end_city_code,
+      </if>
+      <if test="endCityName != null and endCityName != ''">
+        end_city_name,
+      </if>
+      <if test="endCountyCode != null and endCountyCode != ''">
+        end_county_code,
+      </if>
+      <if test="endCountyName != null and endCountyName != ''">
+        end_county_name,
+      </if>
+      <if test="endArea != null and endArea != ''">
+        end_area,
+      </if>
+      <if test="station != null and station != ''">
+        station,
+      </if>
+      <if test="uploader != null and uploader != ''">
+        uploader,
+      </if>
+      <if test="uploaderPhone != null and uploaderPhone != ''">
+        uploader_phone,
+      </if>
+      <if test="uploadTime != null">
+        upload_time,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="uploadFileName != null and uploadFileName != ''">
+        #{uploadFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null and area != ''">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null and provinceName != ''">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null and provinceCode != ''">
+        #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null and cityName != ''">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null and cityCode != ''">
+        #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countyName != null and countyName != ''">
+        #{countyName,jdbcType=VARCHAR},
+      </if>
+      <if test="countyCode != null and countyCode != ''">
+        #{countyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endProvinceCode != null and endProvinceCode != ''">
+        #{endProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endProvinceName != null and endProvinceName != ''">
+        #{endProvinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="endCityCode != null and endCityCode != ''">
+        #{endCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endCityName != null and endCityName != ''">
+        #{endCityName,jdbcType=VARCHAR},
+      </if>
+      <if test="endCountyCode != null and endCountyCode != ''">
+        #{endCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endCountyName != null and endCountyName != ''">
+        #{endCountyName,jdbcType=VARCHAR},
+      </if>
+      <if test="endArea != null and endArea != ''">
+        #{endArea,jdbcType=VARCHAR},
+      </if>
+      <if test="station != null and station != ''">
+        #{station,jdbcType=VARCHAR},
+      </if>
+      <if test="uploader != null and uploader != ''">
+        #{uploader,jdbcType=VARCHAR},
+      </if>
+      <if test="uploaderPhone != null and uploaderPhone != ''">
+        #{uploaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.macro.mall.tiny.mbg.model.UploadHistory">
+    <!--@mbg.generated-->
+    update tb_pservice_upload_history
+    <set>
+      <if test="uploadFileName != null and uploadFileName != ''">
+        upload_file_name = #{uploadFileName,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null and area != ''">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null and provinceName != ''">
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceCode != null and provinceCode != ''">
+        province_code = #{provinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null and cityName != ''">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityCode != null and cityCode != ''">
+        city_code = #{cityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="countyName != null and countyName != ''">
+        county_name = #{countyName,jdbcType=VARCHAR},
+      </if>
+      <if test="countyCode != null and countyCode != ''">
+        county_code = #{countyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endProvinceCode != null and endProvinceCode != ''">
+        end_province_code = #{endProvinceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endProvinceName != null and endProvinceName != ''">
+        end_province_name = #{endProvinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="endCityCode != null and endCityCode != ''">
+        end_city_code = #{endCityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endCityName != null and endCityName != ''">
+        end_city_name = #{endCityName,jdbcType=VARCHAR},
+      </if>
+      <if test="endCountyCode != null and endCountyCode != ''">
+        end_county_code = #{endCountyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="endCountyName != null and endCountyName != ''">
+        end_county_name = #{endCountyName,jdbcType=VARCHAR},
+      </if>
+      <if test="endArea != null and endArea != ''">
+        end_area = #{endArea,jdbcType=VARCHAR},
+      </if>
+      <if test="station != null and station != ''">
+        station = #{station,jdbcType=VARCHAR},
+      </if>
+      <if test="uploader != null and uploader != ''">
+        uploader = #{uploader,jdbcType=VARCHAR},
+      </if>
+      <if test="uploaderPhone != null and uploaderPhone != ''">
+        uploader_phone = #{uploaderPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadTime != null">
+        upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.tiny.mbg.model.UploadHistory">
+    <!--@mbg.generated-->
+    update tb_pservice_upload_history
+    set upload_file_name = #{uploadFileName,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      province_code = #{provinceCode,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      city_code = #{cityCode,jdbcType=VARCHAR},
+      county_name = #{countyName,jdbcType=VARCHAR},
+      county_code = #{countyCode,jdbcType=VARCHAR},
+      end_province_code = #{endProvinceCode,jdbcType=VARCHAR},
+      end_province_name = #{endProvinceName,jdbcType=VARCHAR},
+      end_city_code = #{endCityCode,jdbcType=VARCHAR},
+      end_city_name = #{endCityName,jdbcType=VARCHAR},
+      end_county_code = #{endCountyCode,jdbcType=VARCHAR},
+      end_county_name = #{endCountyName,jdbcType=VARCHAR},
+      end_area = #{endArea,jdbcType=VARCHAR},
+      station = #{station,jdbcType=VARCHAR},
+      uploader = #{uploader,jdbcType=VARCHAR},
+      uploader_phone = #{uploaderPhone,jdbcType=VARCHAR},
+      upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

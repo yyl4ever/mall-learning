@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.tiny.mbg.mapper.CharterApplyMapper">
+  <resultMap id="BaseResultMap" type="com.macro.mall.tiny.mbg.model.CharterApply">
+    <!--@mbg.generated-->
+    <!--@Table tb_pservice_charter_apply-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="is_approved" jdbcType="BOOLEAN" property="approved" />
+    <result column="enterprise_name" jdbcType="VARCHAR" property="enterpriseName" />
+    <result column="social_credit_code" jdbcType="CHAR" property="socialCreditCode" />
+    <result column="enterprise_area" jdbcType="VARCHAR" property="enterpriseArea" />
+    <result column="enterprise_address" jdbcType="VARCHAR" property="enterpriseAddress" />
+    <result column="work_resumption_proof_url" jdbcType="VARCHAR" property="workResumptionProofUrl" />
+    <result column="departure_date" jdbcType="VARCHAR" property="departureDate" />
+    <result column="departure_time" jdbcType="VARCHAR" property="departureTime" />
+    <result column="departure_area" jdbcType="VARCHAR" property="departureArea" />
+    <result column="departure_address" jdbcType="VARCHAR" property="departureAddress" />
+    <result column="destination_area" jdbcType="VARCHAR" property="destinationArea" />
+    <result column="destination_address" jdbcType="VARCHAR" property="destinationAddress" />
+    <result column="bus_seat_type" jdbcType="VARCHAR" property="busSeatType" />
+    <result column="charterer_name" jdbcType="VARCHAR" property="chartererName" />
+    <result column="charterer_phone" jdbcType="VARCHAR" property="chartererPhone" />
+    <result column="passenger_count" jdbcType="SMALLINT" property="passengerCount" />
+    <result column="charter_area_id" jdbcType="BIGINT" property="charterAreaId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, is_approved, enterprise_name, social_credit_code, enterprise_area, enterprise_address, 
+    work_resumption_proof_url, departure_date, departure_time, departure_area, departure_address, 
+    destination_area, destination_address, bus_seat_type, charterer_name, charterer_phone, 
+    passenger_count, charter_area_id, create_time, modify_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_pservice_charter_apply
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from tb_pservice_charter_apply
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="save" keyColumn="id" keyProperty="id" parameterType="com.macro.mall.tiny.mbg.model.CharterApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_pservice_charter_apply (is_approved, enterprise_name, social_credit_code,
+    enterprise_area, enterprise_address, work_resumption_proof_url,
+    departure_date, departure_time, departure_area,
+    departure_address, destination_area, destination_address,
+    bus_seat_type, charterer_name, charterer_phone,
+    passenger_count, charter_area_id, create_time,
+    modify_time)
+    values (#{approved,jdbcType=BOOLEAN}, #{enterpriseName,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=CHAR},
+    #{enterpriseArea,jdbcType=VARCHAR}, #{enterpriseAddress,jdbcType=VARCHAR}, #{workResumptionProofUrl,jdbcType=VARCHAR},
+    #{departureDate,jdbcType=VARCHAR}, #{departureTime,jdbcType=VARCHAR}, #{departureArea,jdbcType=VARCHAR},
+    #{departureAddress,jdbcType=VARCHAR}, #{destinationArea,jdbcType=VARCHAR}, #{destinationAddress,jdbcType=VARCHAR},
+    #{busSeatType,jdbcType=VARCHAR}, #{chartererName,jdbcType=VARCHAR}, #{chartererPhone,jdbcType=VARCHAR},
+    #{passengerCount,jdbcType=SMALLINT}, #{charterAreaId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP},
+    #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.macro.mall.tiny.mbg.model.CharterApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_pservice_charter_apply (is_approved, enterprise_name, social_credit_code, 
+      enterprise_area, enterprise_address, work_resumption_proof_url, 
+      departure_date, departure_time, departure_area, 
+      departure_address, destination_area, destination_address, 
+      bus_seat_type, charterer_name, charterer_phone, 
+      passenger_count, charter_area_id, create_time, 
+      modify_time)
+    values (#{approved,jdbcType=BOOLEAN}, #{enterpriseName,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=CHAR}, 
+      #{enterpriseArea,jdbcType=VARCHAR}, #{enterpriseAddress,jdbcType=VARCHAR}, #{workResumptionProofUrl,jdbcType=VARCHAR}, 
+      #{departureDate,jdbcType=VARCHAR}, #{departureTime,jdbcType=VARCHAR}, #{departureArea,jdbcType=VARCHAR}, 
+      #{departureAddress,jdbcType=VARCHAR}, #{destinationArea,jdbcType=VARCHAR}, #{destinationAddress,jdbcType=VARCHAR}, 
+      #{busSeatType,jdbcType=VARCHAR}, #{chartererName,jdbcType=VARCHAR}, #{chartererPhone,jdbcType=VARCHAR}, 
+      #{passengerCount,jdbcType=SMALLINT}, #{charterAreaId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.macro.mall.tiny.mbg.model.CharterApply" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_pservice_charter_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="approved != null">
+        is_approved,
+      </if>
+      <if test="enterpriseName != null">
+        enterprise_name,
+      </if>
+      <if test="socialCreditCode != null">
+        social_credit_code,
+      </if>
+      <if test="enterpriseArea != null">
+        enterprise_area,
+      </if>
+      <if test="enterpriseAddress != null">
+        enterprise_address,
+      </if>
+      <if test="workResumptionProofUrl != null">
+        work_resumption_proof_url,
+      </if>
+      <if test="departureDate != null">
+        departure_date,
+      </if>
+      <if test="departureTime != null">
+        departure_time,
+      </if>
+      <if test="departureArea != null">
+        departure_area,
+      </if>
+      <if test="departureAddress != null">
+        departure_address,
+      </if>
+      <if test="destinationArea != null">
+        destination_area,
+      </if>
+      <if test="destinationAddress != null">
+        destination_address,
+      </if>
+      <if test="busSeatType != null">
+        bus_seat_type,
+      </if>
+      <if test="chartererName != null">
+        charterer_name,
+      </if>
+      <if test="chartererPhone != null">
+        charterer_phone,
+      </if>
+      <if test="passengerCount != null">
+        passenger_count,
+      </if>
+      <if test="charterAreaId != null">
+        charter_area_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="approved != null">
+        #{approved,jdbcType=BOOLEAN},
+      </if>
+      <if test="enterpriseName != null">
+        #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        #{socialCreditCode,jdbcType=CHAR},
+      </if>
+      <if test="enterpriseArea != null">
+        #{enterpriseArea,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddress != null">
+        #{enterpriseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workResumptionProofUrl != null">
+        #{workResumptionProofUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="departureDate != null">
+        #{departureDate,jdbcType=VARCHAR},
+      </if>
+      <if test="departureTime != null">
+        #{departureTime,jdbcType=VARCHAR},
+      </if>
+      <if test="departureArea != null">
+        #{departureArea,jdbcType=VARCHAR},
+      </if>
+      <if test="departureAddress != null">
+        #{departureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationArea != null">
+        #{destinationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationAddress != null">
+        #{destinationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="busSeatType != null">
+        #{busSeatType,jdbcType=VARCHAR},
+      </if>
+      <if test="chartererName != null">
+        #{chartererName,jdbcType=VARCHAR},
+      </if>
+      <if test="chartererPhone != null">
+        #{chartererPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="passengerCount != null">
+        #{passengerCount,jdbcType=SMALLINT},
+      </if>
+      <if test="charterAreaId != null">
+        #{charterAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.macro.mall.tiny.mbg.model.CharterApply">
+    <!--@mbg.generated-->
+    update tb_pservice_charter_apply
+    <set>
+      <if test="approved != null">
+        is_approved = #{approved,jdbcType=BOOLEAN},
+      </if>
+      <if test="enterpriseName != null">
+        enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      </if>
+      <if test="socialCreditCode != null">
+        social_credit_code = #{socialCreditCode,jdbcType=CHAR},
+      </if>
+      <if test="enterpriseArea != null">
+        enterprise_area = #{enterpriseArea,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseAddress != null">
+        enterprise_address = #{enterpriseAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workResumptionProofUrl != null">
+        work_resumption_proof_url = #{workResumptionProofUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="departureDate != null">
+        departure_date = #{departureDate,jdbcType=VARCHAR},
+      </if>
+      <if test="departureTime != null">
+        departure_time = #{departureTime,jdbcType=VARCHAR},
+      </if>
+      <if test="departureArea != null">
+        departure_area = #{departureArea,jdbcType=VARCHAR},
+      </if>
+      <if test="departureAddress != null">
+        departure_address = #{departureAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationArea != null">
+        destination_area = #{destinationArea,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationAddress != null">
+        destination_address = #{destinationAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="busSeatType != null">
+        bus_seat_type = #{busSeatType,jdbcType=VARCHAR},
+      </if>
+      <if test="chartererName != null">
+        charterer_name = #{chartererName,jdbcType=VARCHAR},
+      </if>
+      <if test="chartererPhone != null">
+        charterer_phone = #{chartererPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="passengerCount != null">
+        passenger_count = #{passengerCount,jdbcType=SMALLINT},
+      </if>
+      <if test="charterAreaId != null">
+        charter_area_id = #{charterAreaId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.tiny.mbg.model.CharterApply">
+    <!--@mbg.generated-->
+    update tb_pservice_charter_apply
+    set is_approved = #{approved,jdbcType=BOOLEAN},
+      enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      social_credit_code = #{socialCreditCode,jdbcType=CHAR},
+      enterprise_area = #{enterpriseArea,jdbcType=VARCHAR},
+      enterprise_address = #{enterpriseAddress,jdbcType=VARCHAR},
+      work_resumption_proof_url = #{workResumptionProofUrl,jdbcType=VARCHAR},
+      departure_date = #{departureDate,jdbcType=VARCHAR},
+      departure_time = #{departureTime,jdbcType=VARCHAR},
+      departure_area = #{departureArea,jdbcType=VARCHAR},
+      departure_address = #{departureAddress,jdbcType=VARCHAR},
+      destination_area = #{destinationArea,jdbcType=VARCHAR},
+      destination_address = #{destinationAddress,jdbcType=VARCHAR},
+      bus_seat_type = #{busSeatType,jdbcType=VARCHAR},
+      charterer_name = #{chartererName,jdbcType=VARCHAR},
+      charterer_phone = #{chartererPhone,jdbcType=VARCHAR},
+      passenger_count = #{passengerCount,jdbcType=SMALLINT},
+      charter_area_id = #{charterAreaId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="saveOne">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_pservice_charter_apply (is_approved, enterprise_name, social_credit_code,
+    enterprise_area, enterprise_address, work_resumption_proof_url,
+    departure_date, departure_time, departure_area,
+    departure_address, destination_area, destination_address,
+    bus_seat_type, charterer_name, charterer_phone,
+    passenger_count, charter_area_id, create_time,
+    modify_time)
+    values (#{approved,jdbcType=BOOLEAN}, #{enterpriseName,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=CHAR},
+    #{enterpriseArea,jdbcType=VARCHAR}, #{enterpriseAddress,jdbcType=VARCHAR}, #{workResumptionProofUrl,jdbcType=VARCHAR},
+    #{departureDate,jdbcType=VARCHAR}, #{departureTime,jdbcType=VARCHAR}, #{departureArea,jdbcType=VARCHAR},
+    #{departureAddress,jdbcType=VARCHAR}, #{destinationArea,jdbcType=VARCHAR}, #{destinationAddress,jdbcType=VARCHAR},
+    #{busSeatType,jdbcType=VARCHAR}, #{chartererName,jdbcType=VARCHAR}, #{chartererPhone,jdbcType=VARCHAR},
+    #{passengerCount,jdbcType=SMALLINT}, #{charterAreaId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP},
+    #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+</mapper>

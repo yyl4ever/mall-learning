@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.mall.tiny.mbg.mapper.RegionDtoMapper">
+  <resultMap id="BaseResultMap" type="com.macro.mall.tiny.mbg.model.RegionDto">
+    <!--@mbg.generated-->
+    <!--@Table tb_pub_region-->
+    <id column="REGION_CODE" jdbcType="VARCHAR" property="regionCode" />
+    <result column="PARENT_CODE" jdbcType="VARCHAR" property="parentCode" />
+    <result column="REGION_NAME" jdbcType="VARCHAR" property="regionName" />
+    <result column="REGION_LEVEL" jdbcType="VARCHAR" property="regionLevel" />
+    <result column="REGION_PY" jdbcType="VARCHAR" property="regionPy" />
+    <result column="REGION_QP" jdbcType="VARCHAR" property="regionQp" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="SORT" jdbcType="VARCHAR" property="sort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    REGION_CODE, PARENT_CODE, REGION_NAME, REGION_LEVEL, REGION_PY, REGION_QP, REMARK, 
+    SORT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_pub_region
+    where REGION_CODE = #{regionCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from tb_pub_region
+    where REGION_CODE = #{regionCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.macro.mall.tiny.mbg.model.RegionDto">
+    <!--@mbg.generated-->
+    insert into tb_pub_region (REGION_CODE, PARENT_CODE, REGION_NAME, 
+      REGION_LEVEL, REGION_PY, REGION_QP, 
+      REMARK, SORT)
+    values (#{regionCode,jdbcType=VARCHAR}, #{parentCode,jdbcType=VARCHAR}, #{regionName,jdbcType=VARCHAR}, 
+      #{regionLevel,jdbcType=VARCHAR}, #{regionPy,jdbcType=VARCHAR}, #{regionQp,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.macro.mall.tiny.mbg.model.RegionDto">
+    <!--@mbg.generated-->
+    insert into tb_pub_region
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="regionCode != null">
+        REGION_CODE,
+      </if>
+      <if test="parentCode != null">
+        PARENT_CODE,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="regionLevel != null">
+        REGION_LEVEL,
+      </if>
+      <if test="regionPy != null">
+        REGION_PY,
+      </if>
+      <if test="regionQp != null">
+        REGION_QP,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="sort != null">
+        SORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="regionCode != null">
+        #{regionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null">
+        #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="regionLevel != null">
+        #{regionLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="regionPy != null">
+        #{regionPy,jdbcType=VARCHAR},
+      </if>
+      <if test="regionQp != null">
+        #{regionQp,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.macro.mall.tiny.mbg.model.RegionDto">
+    <!--@mbg.generated-->
+    update tb_pub_region
+    <set>
+      <if test="parentCode != null">
+        PARENT_CODE = #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="regionLevel != null">
+        REGION_LEVEL = #{regionLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="regionPy != null">
+        REGION_PY = #{regionPy,jdbcType=VARCHAR},
+      </if>
+      <if test="regionQp != null">
+        REGION_QP = #{regionQp,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        SORT = #{sort,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where REGION_CODE = #{regionCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.macro.mall.tiny.mbg.model.RegionDto">
+    <!--@mbg.generated-->
+    update tb_pub_region
+    set PARENT_CODE = #{parentCode,jdbcType=VARCHAR},
+      REGION_NAME = #{regionName,jdbcType=VARCHAR},
+      REGION_LEVEL = #{regionLevel,jdbcType=VARCHAR},
+      REGION_PY = #{regionPy,jdbcType=VARCHAR},
+      REGION_QP = #{regionQp,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=VARCHAR}
+    where REGION_CODE = #{regionCode,jdbcType=VARCHAR}
+  </update>
+    <select id="listAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_pub_region
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-02-27-->
+    <select id="findByParentCodeAndRegionLevelOrderByRegionPyDesc" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_pub_region
+        where PARENT_CODE=#{parentCode,jdbcType=VARCHAR} and REGION_LEVEL=#{regionLevel,jdbcType=VARCHAR} order by
+        REGION_PY desc
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-02-27-->
+    <select id="findByRegionNameIn" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_pub_region
+        where REGION_NAME in
+        <foreach close=")" collection="regionNameCollection" index="index" item="item" open="(" separator=",">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2020-03-01-->
+  <select id="findByRegionName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_pub_region
+    <where>
+      <if test="regionName != null">
+        and REGION_NAME=#{regionName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <insert id="saveOne" useGeneratedKeys="true">
+    insert into tb_pub_region
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="regionCode != null">
+        REGION_CODE,
+      </if>
+      <if test="parentCode != null">
+        PARENT_CODE,
+      </if>
+      <if test="regionName != null">
+        REGION_NAME,
+      </if>
+      <if test="regionLevel != null">
+        REGION_LEVEL,
+      </if>
+      <if test="regionPy != null">
+        REGION_PY,
+      </if>
+      <if test="regionQp != null">
+        REGION_QP,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="sort != null">
+        SORT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="regionCode != null">
+        #{regionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentCode != null">
+        #{parentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="regionName != null">
+        #{regionName,jdbcType=VARCHAR},
+      </if>
+      <if test="regionLevel != null">
+        #{regionLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="regionPy != null">
+        #{regionPy,jdbcType=VARCHAR},
+      </if>
+      <if test="regionQp != null">
+        #{regionQp,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
